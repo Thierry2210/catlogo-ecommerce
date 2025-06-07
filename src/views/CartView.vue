@@ -3,7 +3,6 @@
     <h1 class="text-2xl font-bold mb-4 py-4">Carrinho de Compras</h1>
     <div class="flex flex-col lg:flex-row gap-8">
 
-      <!-- Lista de produtos -->
       <div class="flex-1">
         <div v-if="cart.length > 0" v-for="(item, index) in cart" :key="item.id">
           <div class="bg-white p-3 mb-3 rounded-lg shadow flex items-center gap-3">
@@ -32,7 +31,6 @@
         </div>
       </div>
 
-      <!-- Resumo do carrinho -->
       <div class="w-full max-w-xs bg-white p-4 rounded-lg shadow self-start">
         <h2 class="text-lg font-bold mb-3">Resumo do Pedido</h2>
         <div class="flex justify-between mb-2 text-sm">
@@ -40,12 +38,11 @@
           <span>{{ formatCurrency(totalPrice) }}</span>
         </div>
         
-        <!-- Simulação de frete -->
         <div class="mb-3">
           <label class="block text-xs font-medium mb-1" for="cep">Calcular frete</label>
           <input id="cep" v-model="cep" type="text" maxlength="9" placeholder="Digite seu CEP"
             class="w-full border rounded px-2 py-1 mb-2 text-xs" />
-          <button class="bg-blue-600 text-white px-3 py-1 rounded w-full hover:bg-blue-700 text-xs"
+          <button class="bg-pink-500 text-white px-3 py-1 rounded w-full hover:bg-pink-600 text-xs"
             @click="calcularFrete">
             Calcular
           </button>

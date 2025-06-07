@@ -2,14 +2,13 @@
   <header class="bg-gray-500 shadow-sm sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
-        <!-- Logo -->
+
         <router-link to="/" class="flex items-center">
           <h1 class="text-pink-600 font-bold text-xl transition-transform motion-safe:hover:scale-110">
             BeautySkin
           </h1>
         </router-link>
 
-        <!-- Botão mobile -->
         <button @click="isOpen = !isOpen"
           class="sm:hidden text-black focus:outline-none focus:ring-2 focus:ring-green-400">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
@@ -19,7 +18,6 @@
           </svg>
         </button>
 
-        <!-- Barra de pesquisa (desktop apenas) -->
         <div class="hidden sm:block flex-1 max-w-md mx-4">
           <div class="relative">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -41,7 +39,6 @@
           </div>
         </div>
 
-        <!-- Ícones (desktop) -->
         <div class="hidden sm:flex items-center space-x-4 text-black">
           <router-link to="/login" class="flex items-center hover:text-pink-600 motion-safe:hover:scale-110">
             <img src="/src/assets/img/perfil.png" alt="Entrar" class="w-6 h-6 mr-1" />
@@ -69,9 +66,8 @@
       </div>
     </div>
 
-    <!-- Menu Mobile -->
     <div v-show="isOpen" class="sm:hidden bg-gray-400 px-4 pb-4">
-      <!-- Barra de pesquisa mobile -->
+
       <div class="relative mt-2 mb-4">
         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
           <img src="/src/assets/img/lupa.png" alt="Buscar" class="w-5 h-5 text-gray-400" />
@@ -90,7 +86,6 @@
         </div>
       </div>
 
-      <!-- Links mobile -->
       <div class="space-y-3 text-black text-sm">
         <router-link to="/login" class="flex items-center hover:text-pink-600">
           <img src="/src/assets/img/perfil.png" alt="Entrar" class="w-6 h-6 mr-2" />
@@ -131,7 +126,6 @@ const searchResults = ref([])
 const showResults = ref(false)
 const router = useRouter()
 
-// Busca produtos da API ao digitar
 async function fetchProducts(query) {
   if (!query) {
     searchResults.value = []
@@ -142,7 +136,6 @@ async function fetchProducts(query) {
   searchResults.value = data.products || []
 }
 
-// Observa mudanças no termo de busca e faz a busca em tempo real
 watch(searchTerm, (newTerm) => {
   fetchProducts(newTerm)
 })

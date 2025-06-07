@@ -44,7 +44,6 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-/* Evita que imagens anteriores fiquem clicáveis */
 div[style*="opacity: 0"] {
     pointer-events: none;
 }
